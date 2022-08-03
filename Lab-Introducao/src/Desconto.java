@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
@@ -13,8 +14,10 @@ public class Desconto {
 		double valorComDesc;
 		//double desconto;
 		
-		DecimalFormatSymbols custom=new DecimalFormatSymbols();
-		custom.setDecimalSeparator('.');
+		DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
+		symbols.setDecimalSeparator('.');
+		DecimalFormat format = new DecimalFormat("#.#####", symbols);
+		value = format.parse(format.format(valor));
 		
 		Scanner read = new Scanner(System.in);
 		valor = read.nextDouble();
