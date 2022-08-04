@@ -1,5 +1,4 @@
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
+
 import java.util.Scanner;
 
 public class Desconto {
@@ -10,14 +9,9 @@ public class Desconto {
 		 *  e imprime o valor a ser pago pelo cliente (com duas casas decimais).*/
 		
 		
-		double valor = 0;
+		double valor;
 		double valorComDesc;
 		//double desconto;
-		
-		DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
-		symbols.setDecimalSeparator('.');
-		DecimalFormat format = new DecimalFormat("#.#####", symbols);
-		value = format.parse(format.format(valor));
 		
 		Scanner read = new Scanner(System.in);
 		valor = read.nextDouble();
@@ -27,6 +21,9 @@ public class Desconto {
 			//System.out.println(desconto);
 			valorComDesc = valor - ( valor * (0.05));
 			System.out.printf("%.2f",valorComDesc);
+		}
+		else {
+			System.out.printf("%.2f",valor);
 		}
 		
 		read.close();
