@@ -6,23 +6,32 @@ public class PorcentagemAcerto {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int i =0 ;
+		int ic =0 ;
+		int ig = 0;
 		int count = 0;
-		int candidato[] = {1,2,3,4,5};
-		int gabarito[] = {1,2,3,4,7};
-		int digitados = 0;
+		int candidato[] = new int[100];
+		int gabarito[] = new int[100];
+		//int digitados = 0;
 		double porcentagem;
+		Scanner scan = new Scanner(System.in);
 		
-		/* 
-		 * new int[candidato.length];
-		 *while ( candidato[i] != -1) {
+		 while (  scan.nextInt() != -1) {
 			
-			Scanner scan = new Scanner(System.in);
-			candidato[i] = scan.nextInt();
 			
-			i++;
+			candidato[ic] = scan.nextInt();
+			
+			ic++;
 		
-		}*/
+		}
+		 
+		 while (  scan.nextInt() != -1) {
+				
+				
+				gabarito[ig] = scan.nextInt();
+				
+				ig++;
+			
+		}
 		
 		for (int c = 0 ; c < gabarito.length; c++) {
 			
