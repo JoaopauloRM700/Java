@@ -1,8 +1,7 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 
-class SessaoJedi {
+public class SessaoJedi {
 	String nome;
 	TreinadorJedi	treinador = new TreinadorJedi();
 	ArrayList<IniciadoJedi>	iniciados = new ArrayList<IniciadoJedi>() ;
@@ -27,23 +26,28 @@ class SessaoJedi {
 			iniciados.add(iniciado);
 		}
 		
-		System.out.println(iniciados.get(0).getDescricao());
 		
 		
 	}
 	
-	IniciadoJedi getIniciado(String nome) {
+	IniciadoJedi getIniciado( String nome ) {
+		
+		int i = 0;
 		
 		
-		for (int i=0 ; i<iniciados.size();  i++) {
-			   if( iniciados.get(i).equals(nome)) {
-				   return iniciados.get(i);
-			   }
-			   else{
-					return null;
-			   }
-		}
-		return null;
+		Iterator<IniciadoJedi> iterator = iniciados.iterator();
+	    while (iterator.hasNext()) {
+	    if(iniciados.get(i).nome.contains(nome)) {
+	    	return iniciados.get(i);
+	    }
+	    
+	    i++;
+	      
+	    }
+		
+		return iniciados.get(i);
+		
+		
 		
 	}
 	double	getMediaAnoNascimento() {
@@ -59,15 +63,25 @@ class SessaoJedi {
 		
 	} 
 	String	getDescricao() {
-				
+		
+		String texto = "";
+		int i = 1 ;
+		
+		Iterator<IniciadoJedi> iterator = iniciados.iterator();
+	    while (iterator.hasNext()) {
+	      IniciadoJedi iniciado = iterator.next();
+	      texto =texto +" - Iniciado "+i+": "+ iniciado.getDescricao()+"\n";
+	      
+	      i++;
+	    
+	    } 
+	  	
+	    
 		
 
 		
-		return "--> SESSÃO "+this.nome+" (Treinador: "+treinador.getDescricao()+")\r\n"
-				+ "  - Iniciado 1: "+iniciados.4().getDescricao()+"\r\n"
-				+ "  - Iniciado 2: "+iniciados.get(1).getDescricao()+"\r\n"
-				+ "  - Iniciado 3: "+iniciados.get(2).getDescricao()+"\r\n"
-				+ "  - Iniciado 4: "+iniciados.get(3).getDescricao()+"" ;
+	    return "--> SESSÃO "+this.nome+" (Treinador: "+treinador.getDescricao()+")\n"
+				+ texto;
 		
 	} 
 }

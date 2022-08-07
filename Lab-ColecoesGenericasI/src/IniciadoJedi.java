@@ -1,5 +1,5 @@
 
-class IniciadoJedi {
+public class IniciadoJedi {
 	
 	String nome;
 	String especie;
